@@ -41,11 +41,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String name = nameText.getText().toString();
         String phone = phoneText.getText().toString();
         String contact = name + " " + " " + phone;
-        items.add(contact);
+
+        if (nameText.getText().toString().length() == 0 || phoneText.getText().toString().length() == 0){
+            nameText.setError("You need to enter your name");
+            phoneText.setError("You need to enter your phone #.");
+        } else {
+            items.add(contact);
+        }
+
         phoneText.setText("");
         nameText.setText("");
-
-
     }
 
     @Override
