@@ -40,14 +40,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         String name = nameText.getText().toString();
         String phone = phoneText.getText().toString();
+        phone = String.format("(%s-%s-%s)", phone.substring(0, 3), phone.substring(3, 6), phone.substring(6, 10));
         String contact = name + " " + " " + phone;
 
         if (nameText.getText().toString().length() == 0 || phoneText.getText().toString().length() == 0){
             nameText.setError("You need to enter your name");
             phoneText.setError("You need to enter your phone #.");
+        } if (phone.length() < 10) {
+            phoneText.setError("That is not a valid phone number");
         } else {
             items.add(contact);
+
         }
+
 
         phoneText.setText("");
         nameText.setText("");

@@ -26,7 +26,8 @@
             android:id="@+id/phoneText"
             android:layout_gravity="bottom"
             android:layout_weight="0.38"
-            android:hint="Phone #" />
+            android:hint="Phone #"
+            android:phoneNumber="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
